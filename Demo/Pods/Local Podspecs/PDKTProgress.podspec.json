@@ -1,0 +1,25 @@
+{
+  "name": "PDKTProgress",
+  "version": "0.1.0",
+  "summary": "A short description of PDKTProgress.",
+  "description": "                       An optional longer description of PDKTProgress\n\n                       * Markdown format.\n                       * Don't worry about the indent, we strip it!\n",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/PDKTProgress",
+  "license": "MIT",
+  "authors": {
+    "Daniel García": "fillito@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/PDKTProgress.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "source_files": "Pod/Classes/**/*",
+  "resource_bundles": {
+    "PDKTProgress": [
+      "Pod/Assets/*.png"
+    ]
+  }
+}

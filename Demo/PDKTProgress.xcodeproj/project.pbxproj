@@ -23,8 +23,9 @@
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
-		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
-		88DFF3181AD6B17800109E1D /* PDKTProgress.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 88DFF3171AD6B17800109E1D /* PDKTProgress.podspec */; };
+		88DFF31A1AD6BAF800109E1D /* PDKTProgressTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DFF3191AD6BAF800109E1D /* PDKTProgressTests.m */; };
+		88DFF3221AD6BC8C00109E1D /* TestablePDKTProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DFF3211AD6BC8C00109E1D /* TestablePDKTProgress.m */; };
+		88DFF3241AD6C13300109E1D /* PDKTProgress.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 88DFF3231AD6C13300109E1D /* PDKTProgress.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,10 +61,12 @@
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		6E9120D2BB35CA5CF165FD3C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		88DFF3171AD6B17800109E1D /* PDKTProgress.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PDKTProgress.podspec; sourceTree = "<group>"; };
+		88DFF3191AD6BAF800109E1D /* PDKTProgressTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDKTProgressTests.m; sourceTree = "<group>"; };
+		88DFF3201AD6BC8C00109E1D /* TestablePDKTProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestablePDKTProgress.h; sourceTree = "<group>"; };
+		88DFF3211AD6BC8C00109E1D /* TestablePDKTProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestablePDKTProgress.m; sourceTree = "<group>"; };
+		88DFF3231AD6C13300109E1D /* PDKTProgress.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PDKTProgress.podspec; path = ../PDKTProgress.podspec; sourceTree = "<group>"; };
 		96C8B00D6A4B8A074687BD5F /* libPods-PDKTProgress.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PDKTProgress.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B646A23AEBBE89DA47887C75 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE3952E7FE8D85C58B0AF1D4 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -111,7 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
-				6003F593195388D20070C39A /* PDKTProgress */,
+				6003F593195388D20070C39A /* PDKTProgressDemo */,
 				6003F5B5195388D20070C39A /* Tests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
@@ -141,7 +144,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6003F593195388D20070C39A /* PDKTProgress */ = {
+		6003F593195388D20070C39A /* PDKTProgressDemo */ = {
 			isa = PBXGroup;
 			children = (
 				6003F59C195388D20070C39A /* PDKTAppDelegate.h */,
@@ -153,6 +156,7 @@
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
+			name = PDKTProgressDemo;
 			path = PDKTProgress;
 			sourceTree = "<group>";
 		};
@@ -170,7 +174,7 @@
 		6003F5B5195388D20070C39A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				6003F5BB195388D20070C39A /* Tests.m */,
+				88DFF3191AD6BAF800109E1D /* PDKTProgressTests.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
 			path = Tests;
@@ -179,6 +183,8 @@
 		6003F5B6195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				88DFF3201AD6BC8C00109E1D /* TestablePDKTProgress.h */,
+				88DFF3211AD6BC8C00109E1D /* TestablePDKTProgress.m */,
 				6003F5B7195388D20070C39A /* Tests-Info.plist */,
 				6003F5B8195388D20070C39A /* InfoPlist.strings */,
 				606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */,
@@ -189,7 +195,7 @@
 		60FF7A9C1954A5C5007DD14C /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				88DFF3171AD6B17800109E1D /* PDKTProgress.podspec */,
+				88DFF3231AD6C13300109E1D /* PDKTProgress.podspec */,
 				BE3952E7FE8D85C58B0AF1D4 /* README.md */,
 				6E9120D2BB35CA5CF165FD3C /* LICENSE */,
 			);
@@ -277,7 +283,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88DFF3181AD6B17800109E1D /* PDKTProgress.podspec in Resources */,
+				88DFF3241AD6C13300109E1D /* PDKTProgress.podspec in Resources */,
 				6003F5A4195388D20070C39A /* Main_iPad.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F5A1195388D20070C39A /* Main_iPhone.storyboard in Resources */,
@@ -373,7 +379,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6003F5BC195388D20070C39A /* Tests.m in Sources */,
+				88DFF31A1AD6BAF800109E1D /* PDKTProgressTests.m in Sources */,
+				88DFF3221AD6BC8C00109E1D /* TestablePDKTProgress.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

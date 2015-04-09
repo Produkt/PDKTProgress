@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "PDKTProgress"
-  s.version          = "0.1.0"
+  s.version          = "0.1.1"
   s.summary          = "Handle progress and subprogress"
   s.description      = <<-DESC
                        This small class handles progress and uses the Decorator Pattern to handle
@@ -16,8 +16,9 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.requires_arc = true
 
-  s.source_files = 'PDKTProgress.*'
+  s.source_files = 'PDKTProgress.{h,m}'
   s.resource_bundles = {
 
   }
+  s.frameworks = 'UIKit'
 end

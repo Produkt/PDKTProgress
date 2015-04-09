@@ -6,6 +6,5 @@ end
 
 target 'Tests', :exclusive => true do
   pod "PDKTProgress", :path => "../"
-
-  
+  pod 'OCMockito', '~> 1.0'  
 end

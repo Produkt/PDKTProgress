@@ -26,7 +26,7 @@
 
 - (void)setUp {
     [super setUp];
-    self.progressHandler = [[PDKTProgress alloc] init];
+    self.progressHandler = [[PDKTProgress alloc] initWithUserInfo:nil];
     self.observer = mockProtocol(@protocol(PDKTProgressObserver));
 }
 
@@ -173,6 +173,45 @@
     
     MKTArgumentCaptor *argument = [MKTArgumentCaptor new];
     [[MKTVerifyCount(progressObserver, times(2)) withMatcher:[argument capture] forArgument:1] progressHandler:self.progressHandler didUpdateProgress:0];
+}
+
+- (void)testProgressStoresUserInfo {
+    NSDictionary *fakeUserInfo = mock([NSDictionary class]);
+    PDKTProgress *progressHandler = [[PDKTProgress alloc] initWithUserInfo:fakeUserInfo];
+    XCTAssertEqual(progressHandler.userInfo, fakeUserInfo);
+}
+
+- (void)testProgressStoresAnObjectForANewKeyInUserInfo {
+    NSString *key = @"a key";
+    NSString *anObject = @"an object";
+    [self.progressHandler setUserInfoObject:anObject forKey:key];
+    XCTAssertEqual([self.progressHandler.userInfo valueForKey:key], anObject);
+}
+
+- (void)testProgressStoresANewObjectForAnExistingKeyInUserInfo {
+    NSString *key = @"a key";
+    NSString *anObject = @"an object";
+    [self.progressHandler setUserInfoObject:anObject forKey:key];
+    
+    NSString *newObject = @"a new object";
+    [self.progressHandler setUserInfoObject:newObject forKey:key];
+    XCTAssertEqual([self.progressHandler.userInfo valueForKey:key], newObject);
+}
+
+- (void)testProgressDeleteAnExistingObjectFromUserInfo {
+    NSString *key = @"a key";
+    NSString *anObject = @"an object";
+    [self.progressHandler setUserInfoObject:anObject forKey:key];
+    
+    [self.progressHandler setUserInfoObject:nil forKey:key];
+    XCTAssertEqual([self.progressHandler.userInfo valueForKey:key], nil);
+}
+
+- (void)testTryingToDeleteAnObjectThatDoesNotExistForAKeyFromUserInfo {
+    NSString *key = @"a key";
+    
+    [self.progressHandler setUserInfoObject:nil forKey:key];
+    XCTAssertEqual([self.progressHandler.userInfo valueForKey:key], nil);
 }
 
 @end

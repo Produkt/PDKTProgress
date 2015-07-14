@@ -17,6 +17,7 @@ static NSString * const subprogressWeightKey = @"subprogressWeight";
 @property (assign,nonatomic,readwrite) CGFloat fakeProgressIncrement;
 @property (strong,nonatomic) NSHashTable *observersTable;
 @property (strong,nonatomic) NSMutableArray *subprogressesWeights;
+@property (copy, readwrite) NSDictionary *userInfo;
 @end
 
 @interface PDKTProgress (_Observer)
@@ -31,14 +32,18 @@ static NSString * const subprogressWeightKey = @"subprogressWeight";
 @synthesize progress = _progress;
 @synthesize fakeProgressTimer = _fakeProgressTimer;
 
-- (instancetype)init
-{
+- (instancetype)initWithUserInfo:(NSDictionary *)userInfoOrNil {
     self = [super init];
     if (self) {
         _observersTable = [NSHashTable weakObjectsHashTable];
         _subprogressesWeights = [NSMutableArray array];
+        _userInfo = userInfoOrNil;
     }
     return self;
+}
+
+- (instancetype)init {
+    return [self initWithUserInfo:nil];
 }
 - (void)reset{
     [self performInManThread:^{
@@ -111,6 +116,17 @@ static NSString * const subprogressWeightKey = @"subprogressWeight";
     }
     _fakeProgressTimer = fakeProgressTimer;
 }
+
+- (void)setUserInfoObject:(nullable id)objectOrNil forKey:(nonnull NSString *)key {
+    NSMutableDictionary *mutableUserInfo = [NSMutableDictionary dictionaryWithDictionary:self.userInfo];
+    if (!objectOrNil) {
+        [mutableUserInfo removeObjectForKey:key];
+    } else {
+        [mutableUserInfo setObject:objectOrNil forKey:key];
+    }
+    self.userInfo = [NSDictionary dictionaryWithDictionary:mutableUserInfo];
+}
+
 - (NSString *)description{
     NSMutableString *description = [NSMutableString stringWithFormat:@"<%@> (%f)",NSStringFromClass([self class]),self.progress];
     if (self.subprogresses.count) {

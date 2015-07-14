@@ -24,7 +24,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (assign,nonatomic,readonly) CGFloat fakeProgressIncrement;
 @property (copy, readonly) NSDictionary *userInfo;
 
-- (instancetype)initWithUserInfo:(nullable NSDictionary *)userInfoOrNil;
 - (void)reset;
 - (void)startFakeProgressUntil:(CGFloat)progressLimit withDuration:(NSTimeInterval)progressDuration;
 - (void)updateFakeProgress;

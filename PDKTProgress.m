@@ -32,19 +32,15 @@ static NSString * const subprogressWeightKey = @"subprogressWeight";
 @synthesize progress = _progress;
 @synthesize fakeProgressTimer = _fakeProgressTimer;
 
-- (instancetype)initWithUserInfo:(NSDictionary *)userInfoOrNil {
+- (instancetype)init {
     self = [super init];
     if (self) {
         _observersTable = [NSHashTable weakObjectsHashTable];
         _subprogressesWeights = [NSMutableArray array];
-        _userInfo = userInfoOrNil;
     }
     return self;
 }
 
-- (instancetype)init {
-    return [self initWithUserInfo:nil];
-}
 - (void)reset{
     [self performInManThread:^{
         for (PDKTProgress *subprogress in self.subprogresses) {

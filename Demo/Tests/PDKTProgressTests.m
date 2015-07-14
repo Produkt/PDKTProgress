@@ -175,4 +175,37 @@
     [[MKTVerifyCount(progressObserver, times(2)) withMatcher:[argument capture] forArgument:1] progressHandler:self.progressHandler didUpdateProgress:0];
 }
 
+- (void)testProgressStoresAnObjectForANewKeyInUserInfo {
+    NSString *key = @"a key";
+    NSString *anObject = @"an object";
+    [self.progressHandler setUserInfoObject:anObject forKey:key];
+    XCTAssertEqual([self.progressHandler.userInfo valueForKey:key], anObject);
+}
+
+- (void)testProgressStoresANewObjectForAnExistingKeyInUserInfo {
+    NSString *key = @"a key";
+    NSString *anObject = @"an object";
+    [self.progressHandler setUserInfoObject:anObject forKey:key];
+    
+    NSString *newObject = @"a new object";
+    [self.progressHandler setUserInfoObject:newObject forKey:key];
+    XCTAssertEqual([self.progressHandler.userInfo valueForKey:key], newObject);
+}
+
+- (void)testProgressDeleteAnExistingObjectFromUserInfo {
+    NSString *key = @"a key";
+    NSString *anObject = @"an object";
+    [self.progressHandler setUserInfoObject:anObject forKey:key];
+    
+    [self.progressHandler setUserInfoObject:nil forKey:key];
+    XCTAssertEqual([self.progressHandler.userInfo valueForKey:key], nil);
+}
+
+- (void)testTryingToDeleteAnObjectThatDoesNotExistForAKeyFromUserInfo {
+    NSString *key = @"a key";
+    
+    [self.progressHandler setUserInfoObject:nil forKey:key];
+    XCTAssertEqual([self.progressHandler.userInfo valueForKey:key], nil);
+}
+
 @end

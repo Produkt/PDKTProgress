@@ -120,8 +120,22 @@
 - (void)testAddSubprogress {
     PDKTProgress *subprogress = [[PDKTProgress alloc] init];
     [self.progressHandler addSubprogress:subprogress];
+    XCTAssertEqual(self.progressHandler.subprogresses.count, 1);
     XCTAssert([self.progressHandler.subprogresses containsObject:subprogress]);
     XCTAssert([subprogress.observers containsObject:self.progressHandler]);
+}
+
+- (void)testAddTwoSubprogress {
+    PDKTProgress *subprogress1 = [[PDKTProgress alloc] init];
+    [self.progressHandler addSubprogress:subprogress1];
+    PDKTProgress *subprogress2 = [[PDKTProgress alloc] init];
+    [self.progressHandler addSubprogress:subprogress2];
+
+    XCTAssertEqual(self.progressHandler.subprogresses.count, 2);
+    XCTAssert([self.progressHandler.subprogresses containsObject:subprogress1]);
+    XCTAssert([subprogress1.observers containsObject:self.progressHandler]);
+    XCTAssert([self.progressHandler.subprogresses containsObject:subprogress2]);
+    XCTAssert([subprogress2.observers containsObject:self.progressHandler]);
 }
 
 - (void)testRemoveSubprogress {

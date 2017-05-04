@@ -172,7 +172,6 @@ static NSString * const subprogressWeightKey = @"subprogressWeight";
 }
 
 - (void)addSubprogress:(PDKTProgress *)subprogress{
-    [self addSubprogress:subprogress withWeight:0];
     NSDictionary *subprogressWeight = @{
                                         subprogressKey : subprogress
                                         };

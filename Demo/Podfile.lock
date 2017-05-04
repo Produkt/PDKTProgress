@@ -2,7 +2,7 @@ PODS:
   - OCHamcrest (4.1.1)
   - OCMockito (1.4.0):
     - OCHamcrest (~> 4.0)
-  - PDKTProgress (0.1.1)
+  - PDKTProgress (0.1.2)
 
 DEPENDENCIES:
   - OCMockito (~> 1.0)
@@ -10,11 +10,13 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   PDKTProgress:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
   OCHamcrest: 6f03ffa81d12feab872638490a44ab0a6d3aca10
   OCMockito: 4981140c9a9ec06c31af40f636e3c0f25f27e6b2
-  PDKTProgress: f6b8709e54bc4a02eebc9083283576c6e6ff1ee1
+  PDKTProgress: 392a9bd84b7efc17b82dad4408c63fce2e1675b2
 
-COCOAPODS: 0.37.1
+PODFILE CHECKSUM: '05036183fdda00f1272cecd7e665101f9169a41e'
+
+COCOAPODS: 1.2.1

@@ -1,10 +1,10 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-target 'PDKTProgress', :exclusive => true do
+target 'PDKTProgress' do
   pod "PDKTProgress", :path => "../"
 end
 
-target 'Tests', :exclusive => true do
+target 'Tests' do
   pod "PDKTProgress", :path => "../"
   pod 'OCMockito', '~> 1.0'  
 end

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "PDKTProgress"
-  s.version          = "0.1.3"
+  s.version          = "0.1.4"
   s.summary          = "Handle progress and subprogress"
   s.description      = <<-DESC
                        This small class handles progress and uses the Decorator Pattern to handle
@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/Produkt/PDKTProgress.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/fillito'
 
-  s.platform     = :ios, '7.0'
+  s.platform     = :ios, '10.0'
   s.requires_arc = true
 
   s.source_files = 'PDKTProgress.{h,m}'

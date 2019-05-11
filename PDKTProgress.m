@@ -46,7 +46,7 @@ static NSString * const subprogressWeightKey = @"subprogressWeight";
         for (PDKTProgress *subprogress in self.subprogresses) {
             [subprogress reset];
         }
-        _progress = 0;
+        self->_progress = 0;
     }];
 }
 - (void)setProgress:(CGFloat)progress{
@@ -74,7 +74,7 @@ static NSString * const subprogressWeightKey = @"subprogressWeight";
         if (self.subprogresses.count) {
             currentProgress = [self progressBasedOnSubprogresses];
         }else{
-            currentProgress = _progress;
+            currentProgress = self->_progress;
         }
     }];
     return currentProgress;
@@ -91,7 +91,7 @@ static NSString * const subprogressWeightKey = @"subprogressWeight";
         block();
         return;
     }
-    dispatch_sync(dispatch_get_main_queue(), ^{
+    dispatch_async(dispatch_get_main_queue(), ^{
         block();
     });
 }
